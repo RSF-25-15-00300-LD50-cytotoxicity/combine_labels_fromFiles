@@ -11,4 +11,8 @@ Tool References:
 
 2t. Wickham, Hadley, et al. "Welcome to the Tidyverse." Journal of open source software 4.43 (2019): 1686.
 
-3t. Guha, R. (2007). Chemical informatics functionality in R. Journal of Statistical Software, 18, 1-16.
+3t. Willighagen, E., Teunis, M. A., & De Haan, A. (2024). The Chemistry Development Kit in 2024: improving cheminformatics research. Research Ideas and Outcomes, 10, e124884.
+
+4t. Guha, R. (2007). Chemical informatics functionality in R. Journal of Statistical Software, 18, 1-16.
+
+5t. Urbanek, S., Urbanek, M. S., & JDK, S. J. (2016, January). Package ‘rJava’.
