@@ -13,7 +13,7 @@ for (i in seq(1:length(raw_fn))) {
 mna_fn <- list.files(struct_path, full.names = TRUE, pattern = "*_SD.SDF")
 # Read the files with descriptors and parse them to get access to structures, descriptors, codes and labels
 data_raw <- tibble(mol = "example", cid = "example", cid_all = "example", code = "example", label = "example", mna = "example")
-for (i in seq(1:length(raw_fn))) {
+for (i in seq(1:length(mna_fn))) {
 	data_i <- read_file(mna_fn[i]) |>
 				str_replace_all(">  <hazard label>", ">  <GHS label>") |>
 				str_trim()
@@ -45,7 +45,7 @@ data <- data_raw |> filter(mol != "example") |>
 					ungroup() |>
 					rowwise() |>
 					mutate(cid_all = cid_all |> str_split(", ", simplify = TRUE) |> as.integer() |> sort() |> unique() |> str_c(collapse = ", "),
-						   code    = code |> str_split("\r\n",  simplify = TRUE) |> sort() |> unique() |> str_c(collapse = "\r\n") |> str_trim(),
+						   code    = code |> str_split("\r\n",  simplify = TRUE) |> sort() |> unique() |> str_c(collapse = "\r\n") |> str_replace("unknown", "") |> str_trim(),
 						   label   = label |> str_split("\r\n", simplify = TRUE) |> sort() |> unique() |> str_c(collapse = "\r\n") |> str_trim()) |>
 					ungroup()
 # CID 222 -> no MNA
